@@ -1,0 +1,6 @@
+{
+  "require": {
+    "phpunit/phpunit-selenium": "*",
+    "php-webdriver/webdriver": "dev-main"
+  }  
+}
