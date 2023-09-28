@@ -6,7 +6,7 @@ Before you begin automation testing with Selenium, you would need to:
 
 * Make sure that you have the latest **PHP** installed on your system. You can download and install **PHP** using following commands in the terminal:
 
-  * **MacOS:** Previous versions of **MacOS** have **PHP** installed by default. But for the latest **MacOS** versions starting with **Monterey**, **PHP** has to be downloaded and installed manually by using below commands: 
+  * **MacOS:** For the latest **MacOS** versions, **PHP** has to be downloaded and installed manually by using below commands: 
   ```bash
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install php
