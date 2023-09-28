@@ -11,6 +11,10 @@ Before you begin automation testing with Selenium, you would need to:
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install php
   ```
+  or if you already have Homebrew package manager
+  ```bash
+  brew install php
+  ```
     * **Windows:** 
   ```bash
   sudo apt-get install curl libcurl3 libcurl3-dev php
@@ -54,9 +58,12 @@ Create in folder crocoblock-automation file config.json with next content
 
 ### Executing the Tests
 
-**Step 5:** The tests can be executed in the terminal using the following command:
+**Step 4:** The tests can be executed in the terminal using the following command:
 
 ```bash
 php dispatch-tests.php
 ```
-Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on [LambdaTest automation dashboard](https://automation.lambdatest.com/build). 
+Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on [LambdaTest automation dashboard](https://automation.lambdatest.com/build).
+
+<img width="804" alt="image" src="https://github.com/Crocoblock/crocoblock-automation/assets/4987981/6d1bc3d8-c232-404d-be1e-8ff3f7903c66">
+
