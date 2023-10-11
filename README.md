@@ -109,7 +109,7 @@ composer update
 composer update
 ```
 
-**9.** In the project folder, create a confsg.json file with the following contents
+**9.** In the project folder, create a config.json file with the following contents
 
 ```bash
 {
