@@ -21,6 +21,72 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 
 		$this->web_driver()->get( $this->get_url() );
 
+		// Posts Query With Bricks tokens by Img and ID
+		try {
+			$posts_image = $this->web_driver()->findElement( 
+				WebDriverBy::cssSelector( '.posts-loop-tokens img' ) 
+			);
+
+			$image_src = ( $posts_image ) ? $posts_image->getAttribute( 'src' ) : false;
+
+			if ( $image_src && false !== strpos( $image_src, 'https://ld.crocoblock.com/qa-automation/bricks/wp-content/uploads/' ) ) {
+				$this->report_success( 'Posts Query by post IDs from meta field + Bricks Tokens, Image' );
+			} else {
+				$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, Image' );
+			}
+		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
+			$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, Image' );
+		}
+
+		try {
+			
+			$post_id = $this->web_driver()->findElement( 
+				WebDriverBy::cssSelector( '.posts-loop-tokens .brxe-heading' ) 
+			);
+
+			if ( $post_id && preg_match( '/ID\#\d/', $post_id->getText() ) ) {
+				$this->report_success( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+			} else {
+				$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+			}
+
+		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
+			$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+		}
+
+		// Bricks Query With Bricks tokens by Img and ID
+		try {
+			$posts_image = $this->web_driver()->findElement( 
+				WebDriverBy::cssSelector( '.posts-bricks-query-tokens img' ) 
+			);
+
+			$image_src = ( $posts_image ) ? $posts_image->getAttribute( 'src' ) : false;
+
+			if ( $image_src && false !== strpos( $image_src, 'https://ld.crocoblock.com/qa-automation/bricks/wp-content/uploads/' ) ) {
+				$this->report_success( 'Bricks Query by post IDs from meta field + Bricks Tokens, Image' );
+			} else {
+				$this->report_fail( 'Bricks Query by post IDs from meta field + Bricks Tokens, Image' );
+			}
+		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
+			$this->report_fail( 'Bricks Query by post IDs from meta field + Bricks Tokens, Image' );
+		}
+
+		try {
+			
+			$post_id = $this->web_driver()->findElement( 
+				WebDriverBy::cssSelector( '.posts-bricks-query-tokens .brxe-heading' ) 
+			);
+
+			if ( $post_id && preg_match( '/ID\#\d/', $post_id->getText() ) ) {
+				$this->report_success( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+			} else {
+				$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+			}
+
+		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
+			$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+		}
+
 		// Posts Query by Img and ID
 		try {
 			$posts_image = $this->web_driver()->findElement( 
@@ -91,9 +157,9 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				WebDriverBy::cssSelector( '.wc-loop .brxe-jet-engine-listing-dynamic-image img' ) 
 			);
 
-			$wc_image_src = ( $wc_image ) ? $wc_image->getAttribute( 'src' ) : false;
+			$wc_image_class = ( $wc_image ) ? $wc_image->getAttribute( 'class' ) : false;
 
-			if ( $wc_image_src && false !== strpos( $wc_image_src, 'https://ld.crocoblock.com/qa-automation/bricks/wp-content/uploads/' ) ) {
+			if ( $wc_image_class && false !== strpos( $wc_image_class, 'jet-listing-dynamic-image__img' ) ) {
 				$this->report_success( 'WC Query, Image' );
 			} else {
 				$this->report_fail( 'WC Query, Image' );
