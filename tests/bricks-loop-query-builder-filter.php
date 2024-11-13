@@ -15,7 +15,7 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 	}
 
 	public function url() {
-		return 'https://ld.crocoblock.com/qa-automation/bricks/jetengine-listing-query-builder-filter/';
+		return 'https://ld.crocoblock.com/qa-automation/bricks/brick-loop-query-builder-filter/';
 	}
 
 	public function run() {
