@@ -18,7 +18,18 @@ class Lambda_Test {
 		echo 'Running: ' . $this->test_name() . PHP_EOL;
 
 		$this->url = $url;
-		$this->desired_capabilities = $desired_capabilities;
+
+		if ( ! $desired_capabilities ) {
+			$this->desired_capabilities = $desired_capabilities;
+		} else {
+			$options = new ChromeOptions();
+			$options->addArguments( ['--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'] );
+
+			$capabilities = DesiredCapabilities::chrome();
+			$capabilities->setCapability( ChromeOptions::CAPABILITY, $options );
+
+			$this->desired_capabilities = $capabilities;
+		}
 	}
 
 	public function web_driver() {
