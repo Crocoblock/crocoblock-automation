@@ -46,7 +46,7 @@ class Bricks_Listing_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, AJAX, ID after filtration' );
+			$this->report_fail( 'Catch: Posts Query, AJAX, ID after filtration' );
 		}
 
 		// Is correct indexer after filtering
@@ -67,7 +67,7 @@ class Bricks_Listing_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, AJAX, Indexer Counter after filtering' );
+			$this->report_fail( 'Catch: Posts Query, AJAX, Indexer Counter after filtering' );
 		}
 
 		// Reset filter
@@ -92,7 +92,7 @@ class Bricks_Listing_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, AJAX, Remove Filters' );
+			$this->report_fail( 'Catch: Posts Query, AJAX, Remove Filters' );
 		}
 
 		// WC Query + Filtering
@@ -128,7 +128,7 @@ class Bricks_Listing_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, Reload, ID after filtration' );
+			$this->report_fail( 'Catch: WC Query, Reload, ID after filtration' );
 		}
 
 		// Reset filter
@@ -155,7 +155,7 @@ class Bricks_Listing_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, Reload, Remove Filters' );
+			$this->report_fail( 'Catch: WC Query, Reload, Remove Filters' );
 		}
 
 	}
