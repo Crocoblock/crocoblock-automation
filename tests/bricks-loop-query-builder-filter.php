@@ -46,7 +46,7 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, AJAX, ID after filtration' );
+			$this->report_fail( 'Catch: Posts Query, AJAX, ID after filtration' );
 		}
 
 		// Is correct indexer after filtering
@@ -67,7 +67,7 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, AJAX, Indexer Counter after filtering' );
+			$this->report_fail( 'Catch: Posts Query, AJAX, Indexer Counter after filtering' );
 		}
 
 		// Reset filter
@@ -92,7 +92,7 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, AJAX, Remove Filters' );
+			$this->report_fail( 'Catch: Posts Query, AJAX, Remove Filters' );
 		}
 
 		// WC Query + Filtering
@@ -106,29 +106,37 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 
 			$filter_label->click();
 
+			sleep( FILTER_RESPONSE_TIME );
+
 			$button = $this->web_driver()->findElement(
 				WebDriverBy::cssSelector( '#wc-query-filter .apply-filters__button' )
 			);
 
 			$button->click();
 
+			sleep( FILTER_RESPONSE_TIME );
+
 			// Wait for the page to load completely by waiting for elementA to be present in DOM.
 			$this->web_driver()->wait()->until(
-				WebDriverExpectedCondition::urlContains( 'jsf=jet-engine:wc-query-listing' )
+				WebDriverExpectedCondition::urlContains( 'jsf=bricks-query-loop:wc-query-listing' )
 			);
 
 			$post_id = $this->web_driver()->findElement( 
 				WebDriverBy::cssSelector( '#wc-query-listing .jet-listing-dynamic-field .jet-listing-dynamic-field__content' )
 			);
 
-			if ( $post_id && 'ID#129' === $post_id->getText() ) {
-				$this->report_success( 'WC Query, Mixed, ID after filtration' );
+			if ( $post_id ) {
+				if ( 'ID#129' === $post_id->getText() ) {
+					$this->report_success( 'WC Query, Mixed, ID after filtration' );
+				} else {
+					$this->report_fail( 'WC Query, Mixed, ID after filtration: It isnt post with ID 129 ' );
+				}
 			} else {
 				$this->report_fail( 'WC Query, Mixed, ID after filtration' );
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, Mixed, ID after filtration' );
+			$this->report_fail( 'Catch: WC Query, Mixed, ID after filtration' );
 		}
 
 		// URL match for mixed filters after reload
@@ -142,10 +150,12 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 		try {
 
 			$remove_filters = $this->web_driver()->findElement(
-				WebDriverBy::cssSelector( '#wc-remove-filter button' )
+				WebDriverBy::cssSelector( '.wc-remove-filters button' )
 			);
 
 			$remove_filters->click();
+
+			sleep( FILTER_RESPONSE_TIME );
 
 			$this->web_driver()->wait()->until(
 				WebDriverExpectedCondition::urlIs( $initial_url )
@@ -155,14 +165,18 @@ class Bricks_Loop_Query_Builder_Filter extends Lambda_Test {
 				WebDriverBy::cssSelector( '#wc-query-listing .jet-listing-dynamic-field .jet-listing-dynamic-field__content' )
 			);
 
-			if ( $post_id && preg_match( '/ID\#\d/', $post_id->getText() ) ) {
-				$this->report_success( 'WC Query, Mixed, Remove Filters' );
+			if ( $post_id ) {
+				if ( preg_match( '/ID\#\d/', $post_id->getText() ) ) {
+					$this->report_success( 'WC Query, Mixed, Remove Filters' );
+				} else {
+					$this->report_fail( 'WC Query, Mixed, Remove Filters: It isnt post with ID' );
+				}
 			} else {
 				$this->report_fail( 'WC Query, Mixed, Remove Filters' );
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, Mixed, Remove Filters' );
+			$this->report_fail( 'Catch: WC Query, Mixed, Remove Filters' );
 		}
 
 		// Change URL after reset filter

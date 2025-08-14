@@ -35,7 +35,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, Image' );
 			}
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, Image' );
+			$this->report_fail( 'Catch: Posts Query by post IDs from meta field + Bricks Tokens, Image' );
 		}
 
 		try {
@@ -51,7 +51,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+			$this->report_fail( 'Catch: Posts Query by post IDs from meta field + Bricks Tokens, ID' );
 		}
 
 		// Bricks Query With Bricks tokens by Img and ID
@@ -68,7 +68,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				$this->report_fail( 'Bricks Query by post IDs from meta field + Bricks Tokens, Image' );
 			}
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Bricks Query by post IDs from meta field + Bricks Tokens, Image' );
+			$this->report_fail( 'Catch: Bricks Query by post IDs from meta field + Bricks Tokens, Image' );
 		}
 
 		try {
@@ -84,7 +84,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query by post IDs from meta field + Bricks Tokens, ID' );
+			$this->report_fail( 'Catch: Posts Query by post IDs from meta field + Bricks Tokens, ID' );
 		}
 
 		// Posts Query by Img and ID
@@ -101,7 +101,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				$this->report_fail( 'Posts Query, Image' );
 			}
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, Image' );
+			$this->report_fail( 'Catch: Posts Query, Image' );
 		}
 
 		try {
@@ -117,7 +117,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'Posts Query, ID' );
+			$this->report_fail( 'Catch: Posts Query, ID' );
 		}
 
 		// CCT Query by Img and Title
@@ -134,7 +134,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				$this->report_fail( 'CCT Query, Image' );
 			}
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'CCT Query, Image' );
+			$this->report_fail( 'Catch: CCT Query, Image' );
 		}
 
 		try {
@@ -148,7 +148,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				$this->report_fail( 'CCT Query, Title' );
 			}
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'CCT Query, Title' );
+			$this->report_fail( 'Catch: CCT Query, Title' );
 		}
 
 		// WC Query by Img and ID and Price
@@ -165,7 +165,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 				$this->report_fail( 'WC Query, Image' );
 			}
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, Image' );
+			$this->report_fail( 'Catch: WC Query, Image' );
 		}
 
 		try {
@@ -181,7 +181,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, ID' );
+			$this->report_fail( 'Catch: WC Query, ID' );
 		}
 
 		try {
@@ -197,7 +197,7 @@ class Bricks_Loop_Query_Builder_Base extends Lambda_Test {
 			}
 
 		} catch ( \Facebook\WebDriver\Exception\NoSuchElementException $e ) {
-			$this->report_fail( 'WC Query, Price' );
+			$this->report_fail( 'Catch: WC Query, Price' );
 		}
 
 	}
